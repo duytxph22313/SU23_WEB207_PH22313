@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body ng-app="lab1-form">
+    <h1>Họ Tên: Trần Xuân Duy</h1>
+    <h1>MSV: PH22313</h1>
+    <a class="btn btn-primary" href="lab1_form2.html" role="button">Thêm</a>
+    <div ng-controller="loopConntroller">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">MÔ TẢ</th>
+            <th scope="col">AVATAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in users ">
+            <td scope="row">1</td>
+            <td>{{user.ID}}</td>
+            <td>{{user.NAME}}</td>
+            <td>{{user.EMAIL}}</td>
+            <td>
+              <img src="{{user.AVATAR}}" alt="{{user.NAME}}" ; />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <script src="./libs/angular.min.js"></script>
+    <script>
+var app = angular.module("lab1-form", []);
+      //loopController
+      app.controller("loopConntroller", function ($scope) {
+        $scope.users = [
+          {
+            ID: 1,
+            NAME: "Trần Xuân Duy",
+            EMAIL: "dev@example",
+            AVATAR:
+              "https://i.pinimg.com/564x/4a/fc/16/4afc167ef868a366ec85d0abeb2db7a4.jpg",
+          },
+        ];
+      });
+    </script>
+</body>
+</html>
